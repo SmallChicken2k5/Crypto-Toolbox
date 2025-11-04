@@ -1,7 +1,61 @@
 footer#site-footer.bg-dark.text-light.mt-auto(role='contentinfo')
-  .container.py-4
-    .d-flex.flex-column.flex-md-row.justify-content-between.align-items-center.gap-2
-      p.mb-0
-        strong Công cụ Mã hóa/Giải mã
-        |  — Trang web chung về các công cụ mã hóa và giải mã.
-      p.mb-0 © #{year} Công cụ Mã hóa/Giải mã
+  // Top content
+  .container.py-5
+    .row.gy-4
+      // Brand and intro
+      .col-md-5
+        a.brand-logo.d-inline-flex.align-items-center.mb-2.text-decoration-none(href='/')
+          i.bi.bi-shield-lock-fill.me-2.icon-accent
+          span.logo-word Crypto T
+          span.logo-o.ms-1
+          span.logo-word olbox
+        p.text-secondary.mb-0
+          | Bộ sưu tập công cụ mã hóa/giải mã cổ điển (Caesar, Vigenère…) kèm hướng dẫn.
+
+      // Quick links
+      .col-6.col-md-3
+        h6.text-uppercase.small.mb-3.text-secondary Liên kết nhanh
+        ul.list-unstyled.mb-0
+          li.mb-2
+            a.d-inline-flex.align-items-center.text-decoration-none(href='/' aria-label='Trang chủ')
+              i.bi.bi-house-door.me-2
+              | Trang chủ
+          li.mb-2
+            a.d-inline-flex.align-items-center.text-decoration-none(href='/tool/caesar' aria-label='Caesar Cipher')
+              i.bi.bi-chevron-right.me-2
+              | Caesar Cipher
+          li.mb-2
+            a.d-inline-flex.align-items-center.text-decoration-none(href='/tool/vigenere' aria-label='Vigenère Cipher')
+              i.bi.bi-chevron-right.me-2
+              | Vigenère Cipher
+          li 
+            a.d-inline-flex.align-items-center.text-decoration-none(href='/tool/playfair' aria-label='Playfair Cipher')
+              i.bi.bi-chevron-right.me-2
+              | Playfair Cipher
+
+      // Contact and author
+      .col-6.col-md-4
+        h6.text-uppercase.small.mb-3.text-secondary Liên hệ
+        .d-flex.flex-column.gap-1.small
+          div
+            i.bi.bi-person-badge.me-2.icon-accent
+            span.fw-semibold Thái Hồ Phú Gia
+          div
+            i.bi.bi-mortarboard.me-2.icon-accent
+            | Lớp 23MMT — Mạng máy tính & An ninh thông tin
+          div
+            i.bi.bi-envelope.me-2.icon-accent
+            a.text-decoration-none(href='mailto:thaihophugiak16@siu.edu.vn') thaihophugiak16@siu.edu.vn
+
+  // Bottom bar
+  .border-top.border-secondary-subtle
+  .container.py-3
+    .d-flex.flex-column.flex-md-row.align-items-center.justify-content-between.small.text-secondary.gap-2
+      span © #{year} Crypto Toolbox — Công cụ Mã hóa/Giải mã
+      .d-flex.align-items-center.gap-3
+        // Socials (optional)
+        a.text-decoration-none(href='https://github.com/SmallChicken2k5' target='_blank' rel='noopener')
+          i.bi.bi-github.fs-5
+        // Back to top
+        a.btn.btn-sm.btn-outline-light(href='#' aria-label='Lên đầu trang')
+          i.bi.bi-arrow-up

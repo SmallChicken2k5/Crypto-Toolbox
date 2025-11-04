@@ -11,33 +11,34 @@ block main
     +showAlertError(5000)
 
     .container.pb-5
-        h1 Caesar Cipher
-        form.mb-5(method="POST", action="/tool/caesar/process", enctype="multipart/form-data")
+        h1 Playfair Cipher
+        p.text-secondary.small.mb-3 Lưu ý: thuật toán Playfair loại bỏ ký tự không phải chữ cái và gộp I/J khi xử lý.
+        form.mb-5(method="POST" action="/tool/playfair/process" enctype="multipart/form-data")
             .row
                 .col-md-8
                     label(for="text") Nhập văn bản
-                    textarea#text.form-control(name="text", rows="6")= formData && formData.text ? formData.text : ''
+                    textarea#text.form-control(name="text" rows="6")= formData && formData.text ? formData.text : ''
                 .col-md-4
                     label(for="file") Hoặc chọn file .txt
-                    input#file.form-control(type="file", name="file", accept=".txt")
+                    input#file.form-control(type="file" name="file" accept=".txt")
                     small.text-muted File sẽ thay thế nội dung ở ô văn bản nếu được chọn.
                     hr
-                    label(for="key") Khóa (0-25)
-                    input#key.form-control(type="number", name="key", min="0", max="25", required, value=(formData && formData.key !== undefined ? formData.key : ''))
+                    label(for="key") Khóa (A-Z, gộp I/J)
+                    input#key.form-control(type="text" name="key" pattern="[A-Za-z]+" required value=(formData && formData.key !== undefined ? formData.key : ''))
                     .mt-2
                         label.me-2 Chế độ:
                         label.me-3
-                            input(type="radio", name="mode", value="encrypt", checked=(formData && formData.mode === 'encrypt')) 
+                            input(type="radio" name="mode" value="encrypt" checked=(formData && formData.mode === 'encrypt'))
                             |  Mã hóa
                         label
-                            input(type="radio", name="mode", value="decrypt", checked=(formData && formData.mode === 'decrypt'))
+                            input(type="radio" name="mode" value="decrypt" checked=(formData && formData.mode === 'decrypt'))
                             |  Giải mã
                     .form-check.mt-2
-                        input.form-check-input#download(type="checkbox", name="download", value="1")
+                        input.form-check-input#download(type="checkbox" name="download" value="1")
                         label.form-check-label(for="download") Tải kết quả về file
                     button.btn.btn-primary.mt-3(type="submit") Thực hiện
 
         if result
             hr
             h3 Kết quả
-            textarea.form-control(rows="6", readonly)= result
+            textarea.form-control(rows="6" readonly)= result

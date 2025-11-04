@@ -10,10 +10,10 @@ block main
     +showAlertSuccess(5000)
     +showAlertError(5000)
 
-    .container
+    .container.pb-5
         h1 Vigenère Cipher
 
-        form(method="POST" action="/tool/vigenere/process" enctype="multipart/form-data")
+        form.mb-5(method="POST" action="/tool/vigenere/process" enctype="multipart/form-data")
             .row
                 .col-md-8
                     label(for="text") Nhập văn bản
@@ -37,7 +37,6 @@ block main
                         input.form-check-input#download(type="checkbox" name="download" value="1")
                         label.form-check-label(for="download") Tải kết quả về file
                     button.btn.btn-primary.mt-3(type="submit") Thực hiện
-
         if result
             hr
             h3 Kết quả

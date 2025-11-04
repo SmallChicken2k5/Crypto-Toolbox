@@ -10,4 +10,7 @@ router.post('/caesar/process', upload.single('file'), controller.caesarProcess);
 
 router.get('/vigenere', controller.vigenere);
 router.post('/vigenere/process', upload.single('file'), controller.vigenereProcess);
+
+router.get('/playfair', controller.playfair);
+router.post('/playfair/process', upload.single('file'), controller.playfairProcess);
 module.exports = router;
